@@ -1,18 +1,28 @@
-name: Update gist
+name: Update gists
 on:
   push:
     branches:
       - master
   schedule:
-    - cron: "0 0 * * *"
-  workflow_dispatch:  # 추가: 수동 실행 지원
+    - cron: "0 0 * * *"  # 매일 자정 실행
+  workflow_dispatch:  # 수동 실행 지원
 jobs:
-  update-gist:
+  update-early:
     runs-on: ubuntu-latest
     steps:
-      - name: Update gist
+      - name: Update "I'm an early 🌞" Gist
         uses: maxam2017/productive-box@master
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GIST_ID: ${{ secrets.GIST_ID }}
+          GIST_ID: ${{ secrets.GIST_ID }}  # 기존 Gist ID 유지
+          TIMEZONE: Asia/Seoul
+
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update GitHub Stats Gist
+        uses: maxam2017/productive-box@master
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GIST_ID: d5af7042ed84c9ececa50929289e23b9  # 새로 만든 Gist ID 입력
           TIMEZONE: Asia/Seoul
