@@ -20,9 +20,9 @@ jobs:
   update-stats:
     runs-on: ubuntu-latest
     steps:
-      - name: Update GitHub Stats Gist
-        uses: maxam2017/productive-box@master
-        env:
+      - name: Fetch GitHub Stats
+        uses: anmol098/waka-readme-stats@master  # GitHub Stats를 위한 Action
+        with:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GIST_ID: d5af7042ed84c9ececa50929289e23b9  # 새로 만든 Gist ID 입력
-          TIMEZONE: Asia/Seoul
+          GIST_ID: d5af7042ed84c9ececa50929289e23b9
