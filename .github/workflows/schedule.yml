@@ -14,5 +14,5 @@ jobs:
         uses: maxam2017/productive-box@master
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GIST_ID: ${{ secrets.GIST_ID }}  # 기존 Gist ID 유지
+          GIST_ID: ${{ secrets.GIST_ID }}  # 기존 Gist ID 유지 d5af7042ed84c9ececa50929289e23b9
           TIMEZONE: Asia/Seoul
